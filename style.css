@@ -1,0 +1,197 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #060d23, #01050f); /* Deep dark sci-fi background */
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
+/* Floating Animated Grid Background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Grid Pattern */
+    opacity: 0.2;
+    z-index: -2;
+    animation: moveGrid 20s linear infinite;
+}
+
+@keyframes moveGrid {
+    from { background-position: 0 0; }
+    to { background-position: 100px 100px; }
+}
+
+/* Floating Particle Glow */
+body::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: pulse 6s infinite ease-in-out;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.2); }
+    100% { opacity: 0.2; transform: scale(1); }
+}
+
+/* Floating Weather Card */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.3);
+    width: 90%;
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: float 4s infinite ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+/* Floating Effect */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Header */
+h1 {
+    font-size: 26px;
+    color: #00eaff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Input Box */
+input {
+    width: 80%;
+    padding: 12px;
+    border: 2px solid #00eaff;
+    border-radius: 5px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    margin-bottom: 10px;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.4);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Futuristic Button */
+button {
+    background: linear-gradient(90deg, #00eaff, #0077ff);
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #0077ff, #00eaff);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.8);
+}
+
+/* Weather Info */
+#weather-info {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 3px 15px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#weather-info:hover {
+    transform: scale(1.05);
+}
+
+/* Temperature Display */
+#temperature {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+}
+
+/* Weather Description */
+#description {
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Weather Icon */
+#weather-icon {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+}
+
+/* Wind Speed & Humidity */
+#wind-speed, #humidity {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00ffcc;
+}
+
+/* Floating Forecast Cards */
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 15px rgba(0, 255, 255, 0.3);
+    width: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 6s infinite ease-in-out alternate;
+}
+
+.forecast-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.6);
+}
+
+.forecast-card p {
+    font-size: 14px;
+    color: white;
+}
